@@ -31,7 +31,8 @@ def init():
     game_world.add_object(boy, 1)
 
     bird = [Bird() for _ in range(10)]
-    game_world.add_object(bird, 1)
+    for b in bird:
+        game_world.add_object(b, 1)
 
 
 def finish():
