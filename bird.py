@@ -35,6 +35,8 @@ class FlyState:
     def do(bird):
         bird.frame = (bird.frame + FRAMES_PER_TIME * game_framework.frame_time) % 14
         bird.x += bird.dir * SPEED_PPS * game_framework.frame_time
+        if bird.x < 25 or bird.x > 1600 - 25:
+            bird.dir *= -1
 
 
     @staticmethod
