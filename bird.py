@@ -1,6 +1,7 @@
 from pico2d import *
 import game_world
 import game_framework
+import random
 
 
 # Move Speed
@@ -69,12 +70,13 @@ class StateMachine:
 class Bird:
     image = None
 
-    def __init__(self, x = 400, y = 300, velocity = 1):
+    def __init__(self):
         if Bird.image == None:
             Bird.image = load_image('bird_animation.png')
-        self.x, self.y, self.velocity = x, y, velocity
+        self.x = random.randint(100, 1600 - 100)
+        self.y = random.randint(300, 600 - 100)
+        self.dir = random.choice([-1, 1])
         self.frame = 0
-        self.dir = 1
         self.state_machine = StateMachine(self)
         self.state_machine.start()
 
